@@ -66,7 +66,8 @@ passport.serializeUser(function(user, cb) {
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/callback"
+    callbackURL: "http://18.231.116.175/auth/google/callback" 
+    //callbackURL: "http://localhost:3000/auth/google/callback" to run locally
   },
   function(accessToken, refreshToken, profile, cb) {
     console.log(profile)
@@ -80,7 +81,8 @@ passport.use(new GoogleStrategy({
 passport.use(new FacebookStrategy({
     clientID: process.env.CLIENT_ID_FB,
     clientSecret: process.env.CLIENT_SECRET_FB,
-    callbackURL: "http://localhost:3000/auth/facebook/callback"
+    callbackURL: "http://18.231.116.175:3000/auth/facebook/callback"
+    //callbackURL: "http://localhost:3000/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
     User.findOrCreate({ facebookId: profile.id }, function (err, user) {
