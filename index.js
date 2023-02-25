@@ -28,7 +28,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-//mongoose.connect(process.env.MONGODB, {useNewUrlParser: true});
+mongoose.connect(process.env.MONGODB, {useNewUrlParser: true});
 /* mongoose.connect(process.env.MONGODB, {useNewUrlParser: true}, function(err) {
   if (err) {
       console.log(err);
