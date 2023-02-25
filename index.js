@@ -28,8 +28,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect(process.env.MONGODB, {useNewUrlParser: true});
-/* mongoose.connect(process.env.MONGODB, {useNewUrlParser: true}, function(err) {
+//mongoose.connect(process.env.MONGODB, {useNewUrlParser: true});
+mongoose.connect(process.env.MONGODB, {useNewUrlParser: true}, function(err) {
   if (err) {
       console.log(err);
   } else {
@@ -38,17 +38,9 @@ mongoose.connect(process.env.MONGODB, {useNewUrlParser: true});
           console.log("Server started on port 3000.");
       });
   }
-}); */
+});
 
-const connectDB = async () => {
-  try {
-    const conn = await mongoose.connect(process.env.MONGODB);
-    console.log(`MongoDB Connected: ${conn.connection.host}`);
-  } catch (error) {
-    console.log(error);
-    process.exit(1);
-  }
-}
+
 
 
 
@@ -281,11 +273,7 @@ app.post('/newsecret', (req,res) => {
     })
 })
 
-connectDB().then(() => {
-  app.listen(PORT, () => {
-      console.log("listening for requests");
-  })
-})
+
 
 
 app.listen(4000, () => {
