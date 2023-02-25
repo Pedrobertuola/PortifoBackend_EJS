@@ -82,6 +82,7 @@ passport.use(new GoogleStrategy({
  
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,    
+    //callbackURL: "http://localhost:4000/auth/google/callback" 
     callbackURL: "https://shiny-dog-robe.cyclic.app/auth/google/callback" 
   },
   function(accessToken, refreshToken, profile, cb) {
@@ -95,7 +96,8 @@ passport.use(new GoogleStrategy({
 //Facebook
 passport.use(new FacebookStrategy({
     clientID: process.env.CLIENT_ID_FB,
-    clientSecret: process.env.CLIENT_SECRET_FB,    
+    clientSecret: process.env.CLIENT_SECRET_FB,  
+    //callbackURL: "http://localhost:4000/auth/facebook/callback"  
     callbackURL: "https://shiny-dog-robe.cyclic.app/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
@@ -270,8 +272,8 @@ app.post('/newsecret', (req,res) => {
 })
 
 
-app.listen(3000, () => {
-    console.log('App listening on port 3000')
+app.listen(4000, () => {
+    console.log('App listening on port 4000')
 })
 
 
