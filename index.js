@@ -64,7 +64,8 @@ passport.serializeUser(function(user, cb) {
 
 
 passport.use(new GoogleStrategy({
-    clientID: process.env.CLIENT_ID,
+  clientID: CLIENT_ID,
+    //clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,    
     callbackURL: "https://shiny-dog-robe.cyclic.app/auth/google/callback" 
   },
