@@ -28,7 +28,22 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect(process.env.MONGODB, {useNewUrlParser: true});
+//mongoose.connect(process.env.MONGODB, {useNewUrlParser: true});
+mongoose.connect(process.env.MONGODB, {useNewUrlParser: true}, function(err) {
+  if (err) {
+      console.log(err);
+  } else {
+      console.log("Successfully connected to MongoDB database.");
+      app.listen(process.env.PORT || 3000, function() {
+          console.log("Server started on port 3000.");
+      });
+  }
+});
+
+
+
+
+
 
 //Login sisten
 
@@ -76,7 +91,7 @@ passport.use(new GoogleStrategy({
     });
   }
 ));
-console.log(process.env.CLIENT_ID);
+
 //Facebook
 passport.use(new FacebookStrategy({
     clientID: process.env.CLIENT_ID_FB,
