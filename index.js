@@ -28,8 +28,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-//mongoose.connect(process.env.MONGODB, {useNewUrlParser: true});
-mongoose.connect(process.env.MONGODB, {useNewUrlParser: true}, function(err) {
+mongoose.connect(process.env.MONGODB, {useNewUrlParser: true});
+/* mongoose.connect(process.env.MONGODB, {useNewUrlParser: true}, function(err) {
   if (err) {
       console.log(err);
   } else {
@@ -38,7 +38,7 @@ mongoose.connect(process.env.MONGODB, {useNewUrlParser: true}, function(err) {
           console.log("Server started on port 3000.");
       });
   }
-});
+}); */
 
 
 
@@ -276,8 +276,8 @@ app.post('/newsecret', (req,res) => {
 
 
 
-app.listen(80, () => {
-    console.log('App listening on port 80')
+app.listen(4000, () => {
+    console.log('App listening on port 4000')
 })
 
 
